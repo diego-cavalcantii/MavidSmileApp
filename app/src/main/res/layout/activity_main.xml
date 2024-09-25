@@ -8,56 +8,130 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!-- Logo no topo -->
     <ImageView
-        android:id="@+id/logoOdontoPrev"
+        android:id="@+id/imageViewLogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         app:srcCompat="@drawable/odontoprev_logo" />
 
+    <!-- Primeiro Card -->
+
+    <!-- Segundo Card (inicialmente invisível) -->
     <LinearLayout
-        android:id="@+id/boxContainer"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/gradient_background"
-        android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingBottom="40dp">
+        android:id="@+id/containerOne"
+        android:layout_width="match_parent"
+        android:layout_height="333dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="visible">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cuidar da Saúde Bucal Agora é Divertido!"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="35dp"
-            />
+        <LinearLayout
+            android:id="@+id/boxContainer"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/gradient_background"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:visibility="visible">
 
-        <TextView
-            android:id="@+id/textViewDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Transforme a rotina de escovação em um jogo interativo. Escove os dentes e use fio dental diariamente para acumular pontos e desbloquear novas fases!"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center" />
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:gravity="center"
+                android:text="Cuidar da Saúde Bucal Agora é Divertido!"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/textViewDesc"
+                android:layout_width="274dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="Transforme a rotina de escovação em um jogo interativo. Escove os dentes e use fio dental diariamente para acumular pontos e desbloquear novas fases!"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/nextButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/containerTwo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+
+        <LinearLayout
+            android:id="@+id/boxContainer2"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/gradient_background"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:visibility="visible"> <!-- Inicialmente invisível -->
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:gravity="center"
+                android:text="Manter a Saúde Bucal é Fácil!"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewDesc2"
+                android:layout_width="242dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="Use o fio dental e escove seus dentes diariamente para prevenir problemas bucais e manter um sorriso saudável!"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Imagem no final -->
     <ImageView
-        android:id="@+id/img_dente_feliz"
-        android:layout_width="150dp"
+        android:id="@+id/img_dente_feliz2"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/img_dente_feliz"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/img_dente_feliz" />
 
 </LinearLayout>
