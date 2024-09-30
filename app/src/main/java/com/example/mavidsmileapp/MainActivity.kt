@@ -2,47 +2,76 @@ package com.example.mavidsmileapp
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var containerOne: LinearLayout
+    private lateinit var containerTwo: LinearLayout
+    private lateinit var containerThree: LinearLayout
+    private lateinit var nextButtonOne: ImageButton
+    private lateinit var nextButtonTwo: ImageButton
+    private lateinit var backButtonOne: ImageButton
+    private lateinit var backButtonTwo: ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        
+        // Configuração dos paddings das insets (para barras de status, etc.)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_container)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val containerOne = findViewById<LinearLayout>(R.id.containerOne)
-        val containerTwo = findViewById<LinearLayout>(R.id.containerTwo)
-        val nextButton = findViewById<ImageButton>(R.id.nextButton)
-        val backButton = findViewById<ImageButton>(R.id.backButton)
 
-        // Inicialmente exibe o primeiro card
-        containerOne.visibility = View.VISIBLE
+        containerOne = findViewById(R.id.card_container_one)
+        containerTwo = findViewById(R.id.card_container_two)
+        containerThree = findViewById(R.id.card_container_three)
+
+        nextButtonOne = findViewById(R.id.next_button_card_one)
+        nextButtonTwo = findViewById(R.id.next_button_card_two)
+
+        backButtonOne = findViewById(R.id.back_button_card_two)
+        backButtonTwo = findViewById(R.id.back_button_card_three)
+
+
+        setupButtonListeners()
+    }
+
+
+    private fun setupButtonListeners() {
+        // Ao clicar no botão "nextButtonOne", exibe o segundo card
+        nextButtonOne.setOnClickListener {
+            showContainer(containerTwo)
+        }
+
+        // Ao clicar no botão "nextButtonTwo", exibe o terceiro card
+        nextButtonTwo.setOnClickListener {
+            showContainer(containerThree)
+        }
+
+        // Ao clicar no botão "backButtonOne", volta para o primeiro card
+        backButtonOne.setOnClickListener {
+            showContainer(containerOne)
+        }
+
+        // Ao clicar no botão "backButtonTwo", volta para o segundo card
+        backButtonTwo.setOnClickListener {
+            showContainer(containerTwo)
+        }
+    }
+
+    // Função para mostrar um container e esconder os outros
+    private fun showContainer(visibleContainer: LinearLayout) {
+        containerOne.visibility = View.GONE
         containerTwo.visibility = View.GONE
+        containerThree.visibility = View.GONE
 
-        // Ao clicar no botão "setButton", troca para o segundo card
-        nextButton.setOnClickListener {
-            containerOne.visibility = View.GONE
-            containerTwo.visibility = View.VISIBLE
-        }
-
-        // Ao clicar no botão "backButton", volta para o primeiro card
-        backButton.setOnClickListener {
-            containerTwo.visibility = View.GONE
-            containerOne.visibility = View.VISIBLE
-        }
-
-
-
+        visibleContainer.visibility = View.VISIBLE
     }
 }
