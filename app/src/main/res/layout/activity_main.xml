@@ -16,6 +16,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:text="Digite seu Nome!"
+        android:fontFamily="@font/secular"
         android:textSize="34sp" />
 
     <EditText
@@ -30,8 +31,10 @@
     <Button
         android:id="@+id/buttonEntrar"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:text="entrar" />
+        android:backgroundTint="@color/blue_odontoprev"
+        android:text="entrar"
+        android:clickable="true"/>
 </LinearLayout>
