@@ -1,22 +1,16 @@
 package com.example.mavidsmileapp
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageButton
-import android.widget.LinearLayout
+import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var containerOne: LinearLayout
-    private lateinit var containerTwo: LinearLayout
-    private lateinit var containerThree: LinearLayout
-    private lateinit var nextButtonOne: ImageButton
-    private lateinit var nextButtonTwo: ImageButton
-    private lateinit var backButtonOne: ImageButton
-    private lateinit var backButtonTwo: ImageButton
+    lateinit var nomeEditText: EditText
+    lateinit var buttonEntrar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,49 +23,23 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        containerOne = findViewById(R.id.card_container_one)
-        containerTwo = findViewById(R.id.card_container_two)
-        containerThree = findViewById(R.id.card_container_three)
+        nomeEditText = findViewById(R.id.nomeEditText)
+        buttonEntrar = findViewById(R.id.buttonEntrar)
 
-        nextButtonOne = findViewById(R.id.next_button_card_one)
-        nextButtonTwo = findViewById(R.id.next_button_card_two)
+        buttonEntrar.setOnClickListener {
+            val nome = nomeEditText.text.toString()
+            nextPage(nome)
+        }
 
-        backButtonOne = findViewById(R.id.back_button_card_two)
-        backButtonTwo = findViewById(R.id.back_button_card_three)
+    }
 
-
-        setupButtonListeners()
+    fun nextPage(nome: String) {
+        // Passando o nome para a próxima activity usando Intent.putExtra
+        val intent = Intent(this, WelcomeApplication::class.java)
+        intent.putExtra("USER_NAME", nome) // "USER_NAME" é a chave
+        startActivity(intent)
     }
 
 
-    private fun setupButtonListeners() {
-        // Ao clicar no botão "nextButtonOne", exibe o segundo card
-        nextButtonOne.setOnClickListener {
-            showContainer(containerTwo)
-        }
 
-        // Ao clicar no botão "nextButtonTwo", exibe o terceiro card
-        nextButtonTwo.setOnClickListener {
-            showContainer(containerThree)
-        }
-
-        // Ao clicar no botão "backButtonOne", volta para o primeiro card
-        backButtonOne.setOnClickListener {
-            showContainer(containerOne)
-        }
-
-        // Ao clicar no botão "backButtonTwo", volta para o segundo card
-        backButtonTwo.setOnClickListener {
-            showContainer(containerTwo)
-        }
-    }
-
-    // Função para mostrar um container e esconder os outros
-    private fun showContainer(visibleContainer: LinearLayout) {
-        containerOne.visibility = View.GONE
-        containerTwo.visibility = View.GONE
-        containerThree.visibility = View.GONE
-
-        visibleContainer.visibility = View.VISIBLE
-    }
 }
