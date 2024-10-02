@@ -7,15 +7,16 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class WelcomeApplication : AppCompatActivity() {
 
     private lateinit var nomeTextView: TextView
-    private lateinit var containerOne: LinearLayout
-    private lateinit var containerTwo: LinearLayout
-    private lateinit var containerThree: LinearLayout
+    private lateinit var containerOne: ConstraintLayout
+    private lateinit var containerTwo: ConstraintLayout
+    private lateinit var containerThree: ConstraintLayout
     private lateinit var nextButtonOne: ImageButton
     private lateinit var nextButtonTwo: ImageButton
     private lateinit var backButtonOne: ImageButton
@@ -71,7 +72,7 @@ class WelcomeApplication : AppCompatActivity() {
     }
 
     // Função para mostrar um container e esconder os outros
-    private fun showContainer(visibleContainer: LinearLayout) {
+    private fun showContainer(visibleContainer: ConstraintLayout) {
         containerOne.visibility = View.GONE
         containerTwo.visibility = View.GONE
         containerThree.visibility = View.GONE

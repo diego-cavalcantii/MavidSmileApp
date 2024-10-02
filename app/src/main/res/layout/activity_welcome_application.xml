@@ -1,243 +1,297 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/welcome_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".WelcomeApplication">
 
     <!-- Logo no topo -->
     <ImageView
         android:id="@+id/logo_image"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085"
         app:srcCompat="@drawable/odontoprev_logo" />
 
-    <!-- Primeiro Card -->
     <TextView
         android:id="@+id/nomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:textSize="24sp"
-        android:fontFamily="@font/secular"/>
+        android:fontFamily="@font/secular"
+        app:layout_constraintTop_toBottomOf="@+id/logo_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
 
-    <LinearLayout
+    <!-- Primeiro Card -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card_container_one"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeTextView">
 
-        <!-- Conteúdo do Card 1 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/first_card_text_container"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/gradient_background"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/image_happy_tooth_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.16">
 
-        <LinearLayout
-            android:id="@+id/first_card_content"
-            android:layout_width="match_parent"
-            android:layout_height="333dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/first_card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/secular"
+                android:gravity="center"
+                android:text="Cuidar da Saúde Bucal Agora é Divertido!"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-            <LinearLayout
-                android:id="@+id/first_card_text_container"
-                android:layout_width="300dp"
-                android:layout_height="200dp"
+            <TextView
+                android:id="@+id/first_card_description"
+                android:layout_width="274dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="60dp"
-                android:background="@drawable/gradient_background"
-                android:orientation="vertical"
-                android:paddingTop="20dp"
-                android:visibility="visible">
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="Transforme a rotina de escovação em um jogo interativo. Escove os dentes e use fio dental diariamente para acumular pontos e desbloquear novas fases!"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.768" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/first_card_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/secular"
-                    android:gravity="center"
-                    android:text="Cuidar da Saúde Bucal Agora é Divertido!"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/first_card_description"
-                    android:layout_width="274dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/inter"
-                    android:gravity="center"
-                    android:text="Transforme a rotina de escovação em um jogo interativo. Escove os dentes e use fio dental diariamente para acumular pontos e desbloquear novas fases!"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/next_button_card_one"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/baseline_arrow_forward_ios_24"
-                android:clickable="true"/>
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/next_button_card_one"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/first_card_text_container"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.356"
+            app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
         <ImageView
             android:id="@+id/image_happy_tooth_one"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="80dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_card_text_container"
             app:srcCompat="@drawable/img_dente_feliz" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Segundo Card -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card_container_two"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_container_one">
 
-        <!-- Conteúdo do Card 2 -->
-        <LinearLayout
-            android:id="@+id/second_card_content"
-            android:layout_width="match_parent"
-            android:layout_height="333dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/second_card_text_container"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/gradient_background"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/image_happy_tooth_two"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.16">
 
-            <ImageButton
-                android:id="@+id/back_button_card_two"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+            <TextView
+                android:id="@+id/second_card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/secular"
+                android:gravity="center"
+                android:text="Desafios Diários, Prêmios Reais!"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-            <LinearLayout
-                android:id="@+id/second_card_text_container"
-                android:layout_width="300dp"
-                android:layout_height="200dp"
+            <TextView
+                android:id="@+id/second_card_description"
+                android:layout_width="274dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/gradient_background"
-                android:orientation="vertical"
-                android:paddingTop="20dp">
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="Complete desafios simples e validados por inteligência artificial para ganhar recompensas. Conquiste selos, acesse cursos exclusivos e receba kits de higiene bucal!"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.768" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/second_card_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/secular"
-                    android:gravity="center"
-                    android:text="Desafios Diários, Prêmios Reais!"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/second_card_description"
-                    android:layout_width="242dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/inter"
-                    android:gravity="center"
-                    android:text="Complete desafios simples e validados por inteligência artificial para ganhar recompensas. Conquiste selos, acesse cursos exclusivos e receba kits de higiene bucal!"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/next_button_card_two"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/baseline_arrow_forward_ios_24"
-                android:clickable="true"/>
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/next_button_card_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/second_card_text_container"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.367"
+            app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
 
         <ImageView
             android:id="@+id/image_happy_tooth_two"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_marginBottom="80dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/second_card_text_container"
             app:srcCompat="@drawable/dente_desafio" />
-    </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/back_button_card_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.041"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Terceiro Card -->
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card_container_three"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_container_one">
 
-        <!-- Conteúdo do Card 3 -->
-        <LinearLayout
-            android:id="@+id/third_card_content"
-            android:layout_width="match_parent"
-            android:layout_height="333dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/third_card_text_container"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/gradient_background"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/image_happy_tooth_three"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.16">
 
-            <ImageButton
-                android:id="@+id/back_button_card_three"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:background="@android:color/transparent"
-                app:srcCompat="@drawable/baseline_arrow_back_ios_24"
-                android:clickable="true"/>
+            <TextView
+                android:id="@+id/thid_card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/secular"
+                android:gravity="center"
+                android:text="Desafios Diários, Prêmios Reais!"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-            <LinearLayout
-                android:id="@+id/third_card_text_container"
-                android:layout_width="300dp"
-                android:layout_height="200dp"
+            <TextView
+                android:id="@+id/thid_card_description"
+                android:layout_width="274dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/gradient_background"
-                android:orientation="vertical"
-                android:paddingTop="20dp">
-
-                <TextView
-                    android:id="@+id/third_card_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/secular"
-                    android:gravity="center"
-                    android:text="Compita com seus Amigos"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/third_card_description"
-                    android:layout_width="242dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/inter"
-                    android:gravity="center"
-                    android:text="Convide amigos, compare seus progressos e suba no ranking. Envie incentivos e mantenha todos motivados enquanto cuidam da saúde bucal juntos!"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </LinearLayout>
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="Complete desafios simples e validados por inteligência artificial para ganhar recompensas. Conquiste selos, acesse cursos exclusivos e receba kits de higiene bucal!"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.768" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/image_happy_tooth_three"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="150dp"
-            android:layout_marginBottom="80dp"
-            app:srcCompat="@drawable/dente_amigos"
-            android:clickable="true"/>
-    </LinearLayout>
-</LinearLayout>
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/third_card_text_container"
+            app:srcCompat="@drawable/dente_amigos" />
+
+        <ImageButton
+            android:id="@+id/back_button_card_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.041"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37"
+            app:srcCompat="@drawable/baseline_arrow_back_ios_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
