@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -11,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
     lateinit var nomeEditText: EditText
     lateinit var buttonEntrar: Button
+    lateinit var mensagemErrorTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +27,19 @@ class MainActivity : AppCompatActivity() {
 
         nomeEditText = findViewById(R.id.nomeEditText)
         buttonEntrar = findViewById(R.id.buttonEntrar)
+        mensagemErrorTextView = findViewById(R.id.mensagemErrorTextView)
 
         buttonEntrar.setOnClickListener {
             val nome = nomeEditText.text.toString()
+
+            if(nome.isEmpty()) {
+                mensagemErrorTextView.text = "Por favor, digite seu nome."
+                return@setOnClickListener
+            }
+            if(nome.length < 3) {
+                mensagemErrorTextView.text = "Por favor, digite um nome válido."
+                return@setOnClickListener
+            }
             nextPage(nome)
         }
 
