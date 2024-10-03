@@ -1,5 +1,6 @@
 package com.example.mavidsmileapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -21,6 +22,7 @@ class WelcomeApplication : AppCompatActivity() {
     private lateinit var nextButtonTwo: ImageButton
     private lateinit var backButtonOne: ImageButton
     private lateinit var backButtonTwo: ImageButton
+    private lateinit var backHome: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -42,11 +44,17 @@ class WelcomeApplication : AppCompatActivity() {
 
         backButtonOne = findViewById(R.id.back_button_card_two)
         backButtonTwo = findViewById(R.id.back_button_card_three)
+        backHome = findViewById(R.id.backHome)
 
         val nome = intent.getStringExtra("USER_NAME") ?: "Usuário" // Se não houver nome, define "Usuário"
-        nomeTextView.text = "Bem Vindo $nome!"
+        nomeTextView.text = "Bem vindo(a) $nome!"
 
         setupButtonListeners()
+
+        backHome.setOnClickListener(){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupButtonListeners() {
