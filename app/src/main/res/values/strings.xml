@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MavidSmileApp</string>
+    <string name="cumpra_suas_tarefas_diarias_e_continue_avan_ando">Cumpra suas tarefas diarias e continue avançando!!</string>
+    <string name="capture_uma_foto_de_sua_escova_o_ao_menos_3_antes_das_principais_refei_es">Capture uma foto de sua escovação, ao menos 3, antes das principais refeições</string>
+    <string name="capture_uma_foto_com_uso_do_fio_dental_ao_menos_uma_por_dia">Capture uma foto com uso do fio dental, ao menos uma por dia!</string>
 </resources>
