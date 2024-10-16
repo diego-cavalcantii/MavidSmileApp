@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.widget.ImageButton
 
-// Classe utilitária para configurar a navegação entre telas
 object NavigationUtil {
 
     // Função que configura os botões para navegação entre as atividades
@@ -14,10 +13,12 @@ object NavigationUtil {
         rankingButton: ImageButton,
         premioButton: ImageButton
     ) {
-        // Configura o botão para ir para a tela principal (MainActivity)
+        // Configura o botão para ir para a tela principal (MainActivity), exceto se já estiver nela
         cameraButton.setOnClickListener {
-            val intent = Intent(activity, MainActivity::class.java)
-            activity.startActivity(intent)
+            if (activity !is MainActivity) { // Verifica se a activity atual não é a MainActivity
+                val intent = Intent(activity, MainActivity::class.java)
+                activity.startActivity(intent)
+            }
         }
 
         // Configura o botão para ir para a tela de ranking (RankingActivity)

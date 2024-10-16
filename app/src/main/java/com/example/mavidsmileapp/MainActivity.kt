@@ -20,21 +20,25 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Ajustar padding com base nos insets do sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Inicializar os botões
+        // Inicializa os botões
         cameraButton = findViewById(R.id.cameraButton)
         cardEscovaEFioDental = findViewById(R.id.cardEscovaEFioDental)
         rankingButton = findViewById(R.id.rankingButton)
         premioButton = findViewById(R.id.premioButton)
 
-        // Lógica do card visível/invisível
+        // Lógica para exibir/ocultar o CardView
         cardEscovaEFioDental.visibility = View.GONE
+
+
+        // Chama o NavigationUtil para configurar os outros botões (exceto cameraButton)
+        NavigationUtil.setupNavigation(this, cameraButton, rankingButton, premioButton)
+
         cameraButton.setOnClickListener {
             cardEscovaEFioDental.visibility =
                 if (cardEscovaEFioDental.visibility == View.VISIBLE) View.GONE else View.VISIBLE
