@@ -4,6 +4,7 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -12,25 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MavidSmileApp"
         tools:targetApi="31" >
-        <activity
-            android:name=".MainFragment"
-            android:exported="false"
-            android:theme="@style/Theme.MavidSmileApp" />
-        <activity
-            android:name=".RankingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RewardsActivity"
-            android:exported="false" /> <!-- MainActivity é a primeira tela do aplicativo -->
+
+        <!-- MainActivity, onde o NavHostFragment está, deve ser a activity principal -->
         <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- WelcomeApplication não é a atividade inicial -->
+        </activity>
+
+        <!-- Outras activities da sua aplicação -->
         <activity
             android:name=".WelcomeApplication"
             android:exported="true" />

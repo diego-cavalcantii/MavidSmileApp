@@ -2,24 +2,48 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.mavidsmileapp.MainFragment"
         android:label="Main Fragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <!-- Ações para navegar do MainFragment -->
+        <action
+            android:id="@+id/action_mainFragment_to_rankingFragment"
+            app:destination="@id/rankingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.example.mavidsmileapp.RankingFragment"
         android:label="Ranking Fragment"
-        tools:layout="@layout/fragment_ranking" />
+        tools:layout="@layout/fragment_ranking">
+        <!-- Ações para navegar do RankingFragment -->
+        <action
+            android:id="@+id/action_rankingFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_rankingFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/rewardsFragment"
         android:name="com.example.mavidsmileapp.RewardsFragment"
         android:label="Rewards Fragment"
-        tools:layout="@layout/fragment_rewards" />
+        tools:layout="@layout/fragment_rewards">
+        <!-- Ações para navegar do RewardsFragment -->
+        <action
+            android:id="@+id/action_rewardsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_rewardsFragment_to_rankingFragment"
+            app:destination="@id/rankingFragment" />
+    </fragment>
+
 </navigation>
