@@ -4,24 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import androidx.fragment.app.Fragment
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.mavidsmileapp.databinding.FragmentRewardsBinding
 
 class RewardsFragment : Fragment() {
 
-    private lateinit var cameraButton: ImageButton
-    private lateinit var rankingButton: ImageButton
-    private lateinit var premioButton: ImageButton
+    private var _binding: FragmentRewardsBinding? = null
+    private val binding get() = _binding!!  // Safe property access
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Infla o layout do fragment
-        return inflater.inflate(R.layout.fragment_rewards, container, false)
+        // Inflate the layout using View Binding
+        _binding = FragmentRewardsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,18 +34,18 @@ class RewardsFragment : Fragment() {
             insets
         }
 
-        // Inicializa os botões
-        cameraButton = view.findViewById(R.id.cameraButton)
-        rankingButton = view.findViewById(R.id.rankingButton)
-        premioButton = view.findViewById(R.id.premioButton)
-
-        // Navegação usando ações do nav_graph
-        rankingButton.setOnClickListener {
+        // Navegação usando View Binding
+        binding.rankingButton.setOnClickListener {
             findNavController().navigate(R.id.action_rewardsFragment_to_rankingFragment)
         }
 
-        premioButton.setOnClickListener {
+        binding.cameraButton.setOnClickListener(){
             findNavController().navigate(R.id.action_rewardsFragment_to_mainFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // Limpa o binding quando a view é destruída
     }
 }

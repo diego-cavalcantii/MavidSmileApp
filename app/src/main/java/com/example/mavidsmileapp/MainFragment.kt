@@ -4,26 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.mavidsmileapp.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
-    private lateinit var cameraButton: ImageButton
-    private lateinit var cardEscovaEFioDental: CardView
-    private lateinit var rankingButton: ImageButton
-    private lateinit var premioButton: ImageButton
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!  // Safe property access
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Infla o layout do fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        // Inflate the layout using View Binding
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,27 +34,26 @@ class MainFragment : Fragment() {
             insets
         }
 
-        // Inicializa os botões
-        cameraButton = view.findViewById(R.id.cameraButton)
-//        cardEscovaEFioDental = view.findViewById(R.id.cardEscovaEFioDental)
-        rankingButton = view.findViewById(R.id.rankingButton)
-        premioButton = view.findViewById(R.id.premioButton)
+        // Inicializa os botões e CardView diretamente com View Binding
+        binding.cardEscovaEFioDental.visibility = View.GONE
 
-        // Lógica para exibir/ocultar o CardView
-        cardEscovaEFioDental.visibility = View.GONE
-
-        // Navegação usando ações do nav_graph
-        rankingButton.setOnClickListener {
+        // Navegação entre fragments usando View Binding
+        binding.rankingButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_rankingFragment)
         }
 
-        premioButton.setOnClickListener {
+        binding.premioButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_rewardsFragment)
         }
 
-        cameraButton.setOnClickListener {
-            cardEscovaEFioDental.visibility =
-                if (cardEscovaEFioDental.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+        binding.cameraButton.setOnClickListener {
+            binding.cardEscovaEFioDental.visibility =
+                if (binding.cardEscovaEFioDental.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // Limpa o binding quando a view é destruída
     }
 }
