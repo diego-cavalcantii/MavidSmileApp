@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -13,7 +14,7 @@ import com.example.mavidsmileapp.databinding.FragmentMainBinding
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!  // Safe property access
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,19 +35,23 @@ class MainFragment : Fragment() {
             insets
         }
 
-        // Inicializa os botões e CardView diretamente com View Binding
-        binding.cardEscovaEFioDental.visibility = View.GONE
+        // Acessa os botões no menu incluído
+        val menuBottom = binding.menuBottom
 
-        // Navegação entre fragments usando View Binding
-        binding.rankingButton.setOnClickListener {
+        val rankingButton = menuBottom.rankingButton
+        val premioButton = menuBottom.premioButton
+        val cameraButton = menuBottom.cameraButton
+
+        // Navegação usando os botões do menu
+        rankingButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_rankingFragment)
         }
 
-        binding.premioButton.setOnClickListener {
+        premioButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_rewardsFragment)
         }
 
-        binding.cameraButton.setOnClickListener {
+        cameraButton.setOnClickListener {
             binding.cardEscovaEFioDental.visibility =
                 if (binding.cardEscovaEFioDental.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }

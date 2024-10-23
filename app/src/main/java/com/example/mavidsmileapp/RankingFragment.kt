@@ -13,7 +13,7 @@ import com.example.mavidsmileapp.databinding.FragmentRankingBinding
 class RankingFragment : Fragment() {
 
     private var _binding: FragmentRankingBinding? = null
-    private val binding get() = _binding!!  // Safe property access
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +34,25 @@ class RankingFragment : Fragment() {
             insets
         }
 
-        // Navegação usando View Binding
-        binding.premioButton.setOnClickListener {
+        // Acessa os botões no menu incluído
+        val menuBottom = binding.menuBottom
+
+        val rankingButton = menuBottom.rankingButton
+        val premioButton = menuBottom.premioButton
+        val cameraButton = menuBottom.cameraButton
+
+        // Navegação usando os botões do menu
+        premioButton.setOnClickListener {
             findNavController().navigate(R.id.action_rankingFragment_to_rewardsFragment)
         }
 
-        binding.cameraButton.setOnClickListener {
+        cameraButton.setOnClickListener {
             findNavController().navigate(R.id.action_rankingFragment_to_mainFragment)
+        }
+
+        // Navegação para Ranking Fragment (pode não ser necessário neste fragment)
+        rankingButton.setOnClickListener {
+            // Caso precise adicionar alguma ação para o rankingButton
         }
     }
 

@@ -64,64 +64,14 @@
             app:layout_constraintVertical_bias="0.509" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:background="@drawable/corner_box_top"
-        android:visibility="visible"
+    <include
+        layout="@layout/menu"
+        android:id="@+id/menu_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <ImageButton
-            android:id="@+id/rankingButton"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toEndOf="@+id/cameraButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.49"
-            app:srcCompat="@drawable/ranking"
-            app:tint="@color/snow" />
-
-        <ImageButton
-            android:id="@+id/cameraButton"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.476"
-            app:srcCompat="@drawable/camera"
-            app:tint="@color/snow" />
-
-        <ImageButton
-            android:id="@+id/premioButton"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cameraButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/premio"
-            app:tint="@color/snow" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
