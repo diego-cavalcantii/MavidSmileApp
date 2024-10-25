@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.mavidsmileapp.UiUtil.adjustMenuInsets
 import com.example.mavidsmileapp.databinding.FragmentRankingBinding
 
 class RankingFragment : Fragment() {
@@ -37,6 +38,8 @@ class RankingFragment : Fragment() {
         // Acessa os botões no menu incluído
         val menuBottom = binding.menuBottom
 
+
+
         val rankingButton = menuBottom.rankingButton
         val premioButton = menuBottom.premioButton
         val cameraButton = menuBottom.cameraButton
@@ -54,6 +57,7 @@ class RankingFragment : Fragment() {
         rankingButton.setOnClickListener {
             // Caso precise adicionar alguma ação para o rankingButton
         }
+        adjustMenuInsets(menuBottom)
     }
 
     override fun onDestroyView() {

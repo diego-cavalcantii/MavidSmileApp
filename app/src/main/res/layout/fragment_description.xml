@@ -22,37 +22,24 @@
         app:layout_constraintVertical_bias="0.085"
         app:srcCompat="@drawable/odontoprev_logo" />
 
-    <TextView
-        android:id="@+id/nomeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/secular"
-        android:textColor="@color/icon_color"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_image" />
-
     <!-- Primeiro Card -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card_container_one"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeTextView">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/first_card_text_container"
             android:layout_width="280dp"
             android:layout_height="225dp"
-            android:layout_marginTop="52dp"
             android:background="@drawable/gradient_background"
             android:orientation="vertical"
             android:paddingTop="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/image_happy_tooth_one"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,21 +96,9 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.215"
+            app:layout_constraintVertical_bias="0.981"
             app:srcCompat="@drawable/baseline_arrow_forward_ios_24"
             app:tint="@color/icon_color" />
-
-        <ImageView
-            android:id="@+id/image_happy_tooth_one"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/first_card_text_container"
-            app:srcCompat="@drawable/img_dente_feliz" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Segundo Card -->
@@ -132,19 +107,19 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_container_one">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/second_card_text_container"
             android:layout_width="280dp"
             android:layout_height="225dp"
-            android:layout_marginTop="52dp"
             android:background="@drawable/gradient_background"
             android:orientation="vertical"
             android:paddingTop="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/image_happy_tooth_two"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
@@ -201,19 +176,9 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/second_card_text_container"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.215"
+            app:layout_constraintVertical_bias="0.981"
             app:srcCompat="@drawable/baseline_arrow_forward_ios_24"
             app:tint="@color/icon_color" />
-
-        <ImageView
-            android:id="@+id/image_happy_tooth_two"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/second_card_text_container"
-            app:srcCompat="@drawable/dente_desafio" />
 
         <ImageButton
             android:id="@+id/back_button_card_two"
@@ -227,10 +192,10 @@
             android:paddingBottom="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.002"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.215"
+            app:layout_constraintVertical_bias="0.981"
             app:srcCompat="@drawable/baseline_arrow_back_ios_24"
             app:tint="@color/icon_color" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -242,21 +207,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_container_one">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/third_card_text_container"
             android:layout_width="280dp"
             android:layout_height="225dp"
-            android:layout_marginTop="52dp"
             android:background="@drawable/gradient_background"
             android:orientation="vertical"
             android:paddingTop="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/image_happy_tooth_three"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.16">
@@ -295,18 +260,6 @@
                 app:layout_constraintVertical_bias="0.583" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/image_happy_tooth_three"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="32dp"
-            android:contentDescription="Imagem em desenho do dente com seus amigos"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/third_card_text_container"
-            app:srcCompat="@drawable/dente_amigos" />
-
         <ImageButton
             android:id="@+id/back_button_card_three"
             android:layout_width="wrap_content"
@@ -322,24 +275,18 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.215"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/baseline_arrow_back_ios_24"
             app:tint="@color/icon_color" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/backHome"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="Botão para voltar para a home"
+    <include
+        layout="@layout/menu"
+        android:id="@+id/menu_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/back_home"
-        app:tint="@color/icon_color" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

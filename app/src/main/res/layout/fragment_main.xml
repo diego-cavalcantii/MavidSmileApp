@@ -137,7 +137,7 @@
         android:id="@+id/cardEscovaEFioDental"
         android:layout_width="252dp"
         android:layout_height="104dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:cardCornerRadius="20dp"
         app:cardElevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

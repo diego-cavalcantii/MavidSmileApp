@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/descriptionFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -44,6 +44,24 @@
         <action
             android:id="@+id/action_rewardsFragment_to_rankingFragment"
             app:destination="@id/rankingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.example.mavidsmileapp.DescriptionFragment"
+        android:label="Description Fragment"
+        tools:layout="@layout/fragment_description"
+        >
+        <!-- Ações para navegar do DescriptionFragment -->
+        <action
+            android:id="@+id/action_descriptionFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_descriptionFragment_to_rankingFragment"
+            app:destination="@id/rankingFragment" />
+        <action
+            android:id="@+id/action_descriptionFragment_to_rewardsFragment"
+            app:destination="@id/rewardsFragment" />
     </fragment>
 
 </navigation>
