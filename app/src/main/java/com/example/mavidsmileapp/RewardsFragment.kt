@@ -8,7 +8,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.mavidsmileapp.UiUtil.adjustMenuInsets
 import com.example.mavidsmileapp.databinding.FragmentRewardsBinding
 
 class RewardsFragment : Fragment() {
@@ -35,29 +34,24 @@ class RewardsFragment : Fragment() {
             insets
         }
 
+        val buttonMetas = binding.buttonMetas
+
+        buttonMetas.setOnClickListener(){
+            findNavController().navigate(R.id.action_rewardsFragment_to_metasFragment)
+        }
+
         // Acessa os botões no menu incluído
-        val menuBottom = binding.menuBottom
-
-
-
-        val rankingButton = menuBottom.rankingButton
-        val premioButton = menuBottom.premioButton
-        val cameraButton = menuBottom.cameraButton
-
-        // Navegação usando os botões do menu
-        rankingButton.setOnClickListener {
-            findNavController().navigate(R.id.action_rewardsFragment_to_rankingFragment)
-        }
-
-        cameraButton.setOnClickListener {
-            findNavController().navigate(R.id.action_rewardsFragment_to_mainFragment)
-        }
-
-        // Ação para o botão de prêmio, se necessário
-        premioButton.setOnClickListener {
-            // Adicione uma ação aqui se precisar para o prêmio
-        }
-        adjustMenuInsets(menuBottom)
+        MenuNavigationUtil.setupMenuNavigation(
+            binding.menuBottom,
+            onRankingClick = {
+                findNavController().navigate(R.id.action_rewardsFragment_to_rankingFragment)
+            },
+            onCameraClick = {
+                findNavController().navigate(R.id.action_rewardsFragment_to_mainFragment)
+            },
+            onPremioClick = {
+            }
+        )
     }
 
     override fun onDestroyView() {

@@ -8,7 +8,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.mavidsmileapp.UiUtil.adjustMenuInsets
 import com.example.mavidsmileapp.databinding.FragmentDescriptionBinding
 
 class DescriptionFragment : Fragment() {
@@ -63,7 +62,6 @@ class DescriptionFragment : Fragment() {
         cameraButton.setOnClickListener {
             findNavController().navigate(R.id.action_descriptionFragment_to_mainFragment)
         }
-        adjustMenuInsets(menuBottom)
     }
 
     private fun setupButtonListeners() {
