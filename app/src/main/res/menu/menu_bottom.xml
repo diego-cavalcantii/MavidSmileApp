@@ -1,0 +1,16 @@
+<!-- bottom_nav_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/rankingFragment"
+        android:icon="@drawable/ranking"
+        android:title="@string/ranking" />
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/camera"
+        android:title="@string/main" />
+    <item
+        android:id="@+id/rewardsFragment"
+        android:icon="@drawable/presente"
+        android:title="@string/rewards" />
+
+</menu>

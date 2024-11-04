@@ -33,19 +33,6 @@ class RankingFragment : Fragment() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        // Acessa os botões no menu incluído
-        MenuNavigationUtil.setupMenuNavigation(
-            binding.menuBottom,
-            onRankingClick = {
-            },
-            onCameraClick = {
-                findNavController().navigate(R.id.action_rankingFragment_to_mainFragment)
-            },
-            onPremioClick = {
-                findNavController().navigate(R.id.action_rankingFragment_to_rewardsFragment)
-            }
-        )
     }
 
     override fun onDestroyView() {

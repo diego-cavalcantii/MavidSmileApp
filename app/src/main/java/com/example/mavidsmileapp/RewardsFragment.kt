@@ -33,25 +33,6 @@ class RewardsFragment : Fragment() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val buttonMetas = binding.buttonMetas
-
-        buttonMetas.setOnClickListener(){
-            findNavController().navigate(R.id.action_rewardsFragment_to_metasFragment)
-        }
-
-        // Acessa os botões no menu incluído
-        MenuNavigationUtil.setupMenuNavigation(
-            binding.menuBottom,
-            onRankingClick = {
-                findNavController().navigate(R.id.action_rewardsFragment_to_rankingFragment)
-            },
-            onCameraClick = {
-                findNavController().navigate(R.id.action_rewardsFragment_to_mainFragment)
-            },
-            onPremioClick = {
-            }
-        )
     }
 
     override fun onDestroyView() {

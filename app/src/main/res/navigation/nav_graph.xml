@@ -9,77 +9,26 @@
         android:name="com.example.mavidsmileapp.DescriptionFragment"
         android:label="Description Fragment"
         tools:layout="@layout/fragment_description"
-        >
-        <!-- Ações para navegar do DescriptionFragment -->
-        <action
-            android:id="@+id/action_descriptionFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_descriptionFragment_to_rankingFragment"
-            app:destination="@id/rankingFragment" />
-        <action
-            android:id="@+id/action_descriptionFragment_to_rewardsFragment"
-            app:destination="@id/rewardsFragment" />
-    </fragment>
+        />
+
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.mavidsmileapp.MainFragment"
         android:label="Main Fragment"
-        tools:layout="@layout/fragment_main" >
-        <!-- Ações para navegar do MainFragment -->
-        <action
-            android:id="@+id/action_mainFragment_to_rankingFragment"
-            app:destination="@id/rankingFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_rewardsFragment"
-            app:destination="@id/rewardsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main" />
+
 
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.example.mavidsmileapp.RankingFragment"
         android:label="Ranking Fragment"
-        tools:layout="@layout/fragment_ranking">
-        <!-- Ações para navegar do RankingFragment -->
-        <action
-            android:id="@+id/action_rankingFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_rankingFragment_to_rewardsFragment"
-            app:destination="@id/rewardsFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_ranking"/>
 
     <fragment
         android:id="@+id/rewardsFragment"
         android:name="com.example.mavidsmileapp.RewardsFragment"
         android:label="Rewards Fragment"
-        tools:layout="@layout/fragment_rewards">
-        <!-- Ações para navegar do RewardsFragment -->
-        <action
-            android:id="@+id/action_rewardsFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_rewardsFragment_to_rankingFragment"
-            app:destination="@id/rankingFragment" />
-        <action
-            android:id="@+id/action_rewardsFragment_to_metasFragment"
-            app:destination="@+id/metasFragment"/>
-    </fragment>
-    <fragment
-        android:id="@+id/metasFragment"
-        android:name="com.example.mavidsmileapp.MetasFragment"
-        android:label="Metas Fragment"
-        tools:layout="@layout/fragment_metas">
-        <action
-            android:id="@+id/action_metasFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_metasFragment_to_rewardsFragment"
-            app:destination="@id/rewardsFragment" />
-        <action
-            android:id="@+id/action_metasFragment_to_rankingFragment"
-            app:destination="@id/rankingFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_rewards"/>
 
 </navigation>

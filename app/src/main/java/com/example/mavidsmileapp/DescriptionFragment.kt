@@ -33,36 +33,11 @@ class DescriptionFragment : Fragment() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Configura os botões do menu
-        setupMenuButtons()
 
         // Configura os listeners dos botões de navegação internos
         setupButtonListeners()
     }
 
-    private fun setupMenuButtons() {
-        // Acessa os botões do menu incluído
-        val menuBottom = binding.menuBottom
-
-
-
-        val rankingButton = menuBottom.rankingButton
-        val premioButton = menuBottom.premioButton
-        val cameraButton = menuBottom.cameraButton
-
-        // Navegação entre fragments usando os botões do menu
-        rankingButton.setOnClickListener {
-            findNavController().navigate(R.id.action_descriptionFragment_to_rankingFragment)
-        }
-
-        premioButton.setOnClickListener {
-            findNavController().navigate(R.id.action_descriptionFragment_to_rewardsFragment)
-        }
-
-        cameraButton.setOnClickListener {
-            findNavController().navigate(R.id.action_descriptionFragment_to_mainFragment)
-        }
-    }
 
     private fun setupButtonListeners() {
         // Ao clicar no botão "nextButtonOne", exibe o segundo card

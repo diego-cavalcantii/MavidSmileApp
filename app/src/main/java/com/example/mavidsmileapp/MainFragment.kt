@@ -35,19 +35,6 @@ class MainFragment : Fragment() {
             insets
         }
 
-        MenuNavigationUtil.setupMenuNavigation(
-            binding.menuBottom,
-            onRankingClick = {
-                findNavController().navigate(R.id.action_mainFragment_to_rankingFragment)
-            },
-            onCameraClick = {
-                binding.cardEscovaEFioDental.visibility =
-                    if (binding.cardEscovaEFioDental.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            },
-            onPremioClick = {
-                findNavController().navigate(R.id.action_mainFragment_to_rewardsFragment)
-            }
-        )
     }
 
     override fun onDestroyView() {

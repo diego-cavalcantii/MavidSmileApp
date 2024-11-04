@@ -32,18 +32,6 @@ class MetasFragment : Fragment() {
             insets
         }
 
-        MenuNavigationUtil.setupMenuNavigation(
-            binding.menuBottom,
-            onRankingClick = {
-                findNavController().navigate(R.id.action_metasFragment_to_rankingFragment)
-            },
-            onCameraClick = {
-                findNavController().navigate(R.id.action_metasFragment_to_mainFragment)
-            },
-            onPremioClick = {
-                findNavController().navigate(R.id.action_metasFragment_to_rewardsFragment)
-            }
-        )
     }
 
     override fun onDestroyView() {

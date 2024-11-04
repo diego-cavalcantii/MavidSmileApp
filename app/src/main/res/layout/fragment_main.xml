@@ -123,16 +123,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <include
-        layout="@layout/menu"
-        android:id="@+id/menu_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardEscovaEFioDental"
         android:layout_width="252dp"
