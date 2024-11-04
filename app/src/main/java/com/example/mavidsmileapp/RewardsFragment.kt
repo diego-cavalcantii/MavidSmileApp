@@ -33,6 +33,19 @@ class RewardsFragment : Fragment() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val buttonMetas = binding.buttonMetas
+        val buttonAwards = binding.buttonAwards
+
+        buttonMetas.setOnClickListener(){
+            findNavController().navigate(R.id.action_rewardsFragment_to_metasFragment)
+        }
+
+        buttonAwards.setOnClickListener(){
+            findNavController().navigate(R.id.action_rewardsFragment_to_awardsFragment)
+        }
+
+
     }
 
     override fun onDestroyView() {

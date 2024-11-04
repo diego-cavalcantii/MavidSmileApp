@@ -29,6 +29,24 @@
         android:id="@+id/rewardsFragment"
         android:name="com.example.mavidsmileapp.RewardsFragment"
         android:label="Rewards Fragment"
-        tools:layout="@layout/fragment_rewards"/>
+        tools:layout="@layout/fragment_rewards">
+        <action
+            android:id="@+id/action_rewardsFragment_to_metasFragment"
+            app:destination="@id/metasFragment" />
+        <action
+            android:id="@+id/action_rewardsFragment_to_awardsFragment"
+            app:destination="@+id/awardsFragment"/>
+    </fragment>
 
+    <fragment
+        android:id="@+id/metasFragment"
+        android:name="com.example.mavidsmileapp.MetasFragment"
+        android:label="Metas Fragment"
+        tools:layout="@layout/fragment_metas" />
+
+    <fragment
+        android:id="@+id/awardsFragment"
+        android:name="com.example.mavidsmileapp.AwardsFragment"
+        android:label="Awards Fragment"
+        tools:layout="@layout/fragment_awards"/>
 </navigation>

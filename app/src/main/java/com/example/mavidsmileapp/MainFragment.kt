@@ -41,4 +41,13 @@ class MainFragment : Fragment() {
         super.onDestroyView()
         _binding = null // Limpa o binding quando a view é destruída
     }
+
+    fun toggleCardEscovaEFioDental() {
+        binding.cardEscovaEFioDental.visibility =
+            if (binding.cardEscovaEFioDental.visibility == View.VISIBLE) {
+                View.GONE
+            } else {
+                View.VISIBLE
+            }
+    }
 }
