@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" >
+
+    <!-- Permissão para permitir o acesso à internet -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -12,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MavidSmileApp"
-        tools:targetApi="31" >
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true">
 
-        <!-- MainActivity, onde o NavHostFragment está, deve ser a activity principal -->
         <activity
             android:name=".MainActivity"
             android:exported="true" >
@@ -23,14 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Outras activities da sua aplicação -->
-        <activity
-            android:name=".WelcomeApplication"
-            android:exported="true" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
     </application>
 
 </manifest>
