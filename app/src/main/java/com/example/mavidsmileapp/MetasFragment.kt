@@ -14,6 +14,7 @@ class MetasFragment : Fragment() {
 
     private var _binding: FragmentMetasBinding? = null
     private val binding get() = _binding!!
+    private lateinit var clienteHelper: ClienteHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,7 +22,10 @@ class MetasFragment : Fragment() {
     ): View? {
         // Inflate the layout using View Binding
         _binding = FragmentMetasBinding.inflate(inflater, container, false)
+        clienteHelper = ClienteHelper(requireContext()) // Inicializa o ClienteHelper
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,6 +35,9 @@ class MetasFragment : Fragment() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        clienteHelper.fetchClient("201", binding.layoutBio)
+        clienteHelper.fetchProgressoCliente("201", binding.layoutBio)
 
     }
 

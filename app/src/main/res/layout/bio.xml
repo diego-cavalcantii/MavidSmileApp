@@ -36,7 +36,6 @@
             android:id="@+id/nomeCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Neymar Jr"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.132"
@@ -45,10 +44,9 @@
             app:layout_constraintVertical_bias="0.509" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/nivelCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bafo de Bosta"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.898"
@@ -83,10 +81,10 @@
             app:cardElevation="4dp">
 
             <TextView
+                android:id="@+id/pontosCliente"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="15.000pts"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
         </androidx.cardview.widget.CardView>
@@ -101,10 +99,10 @@
             app:cardElevation="4dp">
 
             <TextView
+                android:id="@+id/registrosCliente"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="150 registros"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
         </androidx.cardview.widget.CardView>
