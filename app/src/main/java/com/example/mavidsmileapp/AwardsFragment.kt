@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mavidsmileapp.databinding.FragmentAwardsBinding
 import com.example.mavidsmileapp.databinding.FragmentMetasBinding
 
@@ -15,6 +17,7 @@ class AwardsFragment : Fragment() {
     private var _binding: FragmentAwardsBinding? = null
     private val binding get() = _binding!!
     private lateinit var clienteHelper: ClienteHelper
+    private lateinit var premiosAdapter: PremiosAdapter
 
 
     override fun onCreateView(
@@ -35,8 +38,17 @@ class AwardsFragment : Fragment() {
             insets
         }
 
-        clienteHelper.fetchClient("201", binding.layoutBio)
-        clienteHelper.fetchProgressoCliente("201", binding.layoutBio)
+        // Configura o RecyclerView e o adapter de prêmios
+        premiosAdapter = PremiosAdapter(emptyList())
+        binding.recyclerViewPremios.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewPremios.adapter = premiosAdapter
+
+        // Carrega os dados do cliente e atualiza o adapter com os prêmios recebidos
+        clienteHelper.fetchClient("201", binding.layoutBio) { cliente ->
+            premiosAdapter.updateData(cliente.premiosRecebidos)
+        }
+
+        clienteHelper.fetchProgressoCliente("201",binding.layoutBio)
 
     }
 

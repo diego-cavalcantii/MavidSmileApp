@@ -27,9 +27,14 @@ class RewardsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Chama a função para buscar o nome do cliente e exibir no TextView
-        clienteHelper.fetchClient("201", binding.layoutBio)
-        clienteHelper.fetchProgressoCliente("201", binding.layoutBio)
+        clienteHelper.fetchClient("201", binding.layoutBio) { cliente ->
+            binding.layoutBio.nomeCliente.text = cliente.nomeCompleto
+            binding.layoutBio.nivelCliente.text = cliente.nomeNivel
+            binding.layoutBio.pontosCliente.text = "${cliente.pontos}pts"
+        }
+
+        clienteHelper.fetchProgressoCliente("201",binding.layoutBio)
+
 
         // Configuração dos botões
         binding.buttonMetas.setOnClickListener {
