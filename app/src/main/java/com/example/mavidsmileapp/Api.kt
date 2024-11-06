@@ -1,6 +1,10 @@
 // Api.kt
 package com.example.mavidsmileapp
 
+import com.example.mavidsmileapp.domains.Cliente
+import com.example.mavidsmileapp.domains.ClienteRanking
+import com.example.mavidsmileapp.domains.Nivel
+import com.example.mavidsmileapp.domains.ProgressoCliente
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -9,33 +13,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 const val URL = "http://10.0.2.2:8080"
-
-// Cliente.kt
-data class Cliente(
-    val nomeNivel: String,
-    val nomeCompleto: String,
-    val email: String,
-    val endereco: String,
-    val pontos: Int,
-    val premiosRecebidos: List<Premio>
-
-)
-data class Premio(
-    val nomePremio: String,
-    val descricaoPremio:String,
-)
-
-data class ClienteRanking(
-    val nomeCompleto: String,
-    val nomeNivel: String,
-    val pontos: Int
-)
-
-data class ProgressoCliente(
-    val nomeCompleto: String,
-    val registros: Int,
-    val pontos: Int,
-)
 
 interface ClientePropertyService {
     @GET("/clientes/{id}")
@@ -51,9 +28,9 @@ interface RankingPropertyService {
     fun getRankingCliente(@Path("id") id: String): Call<List<ClienteRanking>>
 }
 
-interface PremiosPropertyService {
-    @GET("/premios")
-    fun getAllPremios(): Call<List<Premio>>
+interface NivelPropertyService {
+    @GET("/nivel")
+    fun getAllNiveis(): Call<List<Nivel>>
 }
 
 object Api {
@@ -84,11 +61,11 @@ object Api {
         return retrofit.create(RankingPropertyService::class.java)
     }
 
-    fun buildServicePremios() : PremiosPropertyService {
+    fun buildServiceNiveis() : NivelPropertyService {
         val retrofit = Retrofit.Builder()
             .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        return retrofit.create(PremiosPropertyService::class.java)
+        return retrofit.create(NivelPropertyService::class.java)
     }
  }

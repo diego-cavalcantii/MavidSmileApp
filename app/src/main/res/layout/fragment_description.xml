@@ -279,4 +279,13 @@
             app:tint="@color/icon_color" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <include
+        layout="@layout/menu"
+        android:id="@+id/menu_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

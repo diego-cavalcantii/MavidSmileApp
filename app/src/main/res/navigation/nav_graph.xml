@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/descriptionFragment"
-        android:name="com.example.mavidsmileapp.DescriptionFragment"
+        android:name="com.example.mavidsmileapp.fragments.DescriptionFragment"
         android:label="Description Fragment"
         tools:layout="@layout/fragment_description"
         />
@@ -14,39 +14,33 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.mavidsmileapp.MainFragment"
+        android:name="com.example.mavidsmileapp.fragments.MainFragment"
         android:label="Main Fragment"
         tools:layout="@layout/fragment_main" />
 
 
     <fragment
         android:id="@+id/rankingFragment"
-        android:name="com.example.mavidsmileapp.RankingFragment"
+        android:name="com.example.mavidsmileapp.fragments.RankingFragment"
         android:label="Ranking Fragment"
         tools:layout="@layout/fragment_ranking"/>
 
     <fragment
         android:id="@+id/rewardsFragment"
-        android:name="com.example.mavidsmileapp.RewardsFragment"
+        android:name="com.example.mavidsmileapp.fragments.RewardsFragment"
         android:label="Rewards Fragment"
         tools:layout="@layout/fragment_rewards">
-        <action
-            android:id="@+id/action_rewardsFragment_to_metasFragment"
-            app:destination="@id/metasFragment" />
-        <action
-            android:id="@+id/action_rewardsFragment_to_awardsFragment"
-            app:destination="@+id/awardsFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/metasFragment"
-        android:name="com.example.mavidsmileapp.MetasFragment"
+        android:name="com.example.mavidsmileapp.fragments.MetasFragment"
         android:label="Metas Fragment"
         tools:layout="@layout/fragment_metas" />
 
     <fragment
         android:id="@+id/awardsFragment"
-        android:name="com.example.mavidsmileapp.AwardsFragment"
+        android:name="com.example.mavidsmileapp.fragments.AwardsFragment"
         android:label="Awards Fragment"
         tools:layout="@layout/fragment_awards"/>
 </navigation>

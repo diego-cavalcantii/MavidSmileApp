@@ -1,4 +1,4 @@
-package com.example.mavidsmileapp
+package com.example.mavidsmileapp.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.mavidsmileapp.Menu
 import com.example.mavidsmileapp.databinding.FragmentDescriptionBinding
 
 class DescriptionFragment : Fragment() {
 
     private var _binding: FragmentDescriptionBinding? = null
     private val binding get() = _binding!!  // Safe property access
+    private lateinit var menu: Menu
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +38,9 @@ class DescriptionFragment : Fragment() {
 
         // Configura os listeners dos botões de navegação internos
         setupButtonListeners()
+
+        menu = Menu(binding.root, findNavController())
+        menu.setupMenu()
     }
 
 

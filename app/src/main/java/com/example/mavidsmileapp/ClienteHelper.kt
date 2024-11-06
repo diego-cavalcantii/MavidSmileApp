@@ -5,6 +5,11 @@ import android.content.Context
 import android.widget.TextView
 import android.widget.Toast
 import androidx.viewbinding.ViewBinding
+import com.example.mavidsmileapp.adapters.RankingAdapter
+import com.example.mavidsmileapp.domains.Cliente
+import com.example.mavidsmileapp.domains.ClienteRanking
+import com.example.mavidsmileapp.domains.Nivel
+import com.example.mavidsmileapp.domains.ProgressoCliente
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,13 +25,10 @@ class ClienteHelper(private val context: Context) {
                 if (response.isSuccessful) {
                     val cliente = response.body()
                     cliente?.let {
-                        // Exibe os dados do cliente
                         binding.root.findViewById<TextView>(R.id.nomeCliente).text = it.nomeCompleto
                         binding.root.findViewById<TextView>(R.id.nivelCliente).text = it.nomeNivel
                         binding.root.findViewById<TextView>(R.id.pontosCliente).text = "${it.pontos}pts"
-
-                        // Passa o cliente para o callback
-                        onClientFetched(it)
+                        onClientFetched(it) // Passa o cliente para o callback
                     }
                 } else {
                     Toast.makeText(context, "Erro ao buscar cliente: ${response.code()}", Toast.LENGTH_SHORT).show()
@@ -39,18 +41,17 @@ class ClienteHelper(private val context: Context) {
         })
     }
 
-    fun fetchProgressoCliente(clienteId: String, binding: ViewBinding){
+    fun fetchProgressoCliente(clienteId: String, binding: ViewBinding) {
         val service = Api.buildServiceProgressoCliente()
         val call = service.getProgressoCliente(clienteId)
 
-        call.enqueue(object : Callback<ProgressoCliente>{
+        call.enqueue(object : Callback<ProgressoCliente> {
             override fun onResponse(call: Call<ProgressoCliente>, response: Response<ProgressoCliente>) {
                 if (response.isSuccessful) {
                     val progressoCliente = response.body()
                     progressoCliente?.let {
                         binding.root.findViewById<TextView>(R.id.registrosCliente).text =
                             "${it.registros} ${if (it.registros > 1) "registros" else "registro"}"
-
                     }
                 }
             }
@@ -58,11 +59,8 @@ class ClienteHelper(private val context: Context) {
             override fun onFailure(call: Call<ProgressoCliente>, t: Throwable) {
                 Toast.makeText(context, "Falha na requisição: ${t.message}", Toast.LENGTH_SHORT).show()
             }
-
         })
-
     }
-
 
     fun fetchRankingData(clientId: String, adapter: RankingAdapter) {
         val service = Api.buildServiceRankingCLiente()
@@ -72,7 +70,7 @@ class ClienteHelper(private val context: Context) {
             override fun onResponse(call: Call<List<ClienteRanking>>, response: Response<List<ClienteRanking>>) {
                 if (response.isSuccessful) {
                     val rankingList = response.body() ?: emptyList()
-                    println("Ranking data size: ${rankingList.size}") // Log para verificar o tamanho da lista
+                    println("Ranking data size: ${rankingList.size}")
                     adapter.updateData(rankingList)
                 } else {
                     println("Erro ao carregar ranking: ${response.code()}")
@@ -84,23 +82,24 @@ class ClienteHelper(private val context: Context) {
             }
         })
     }
-    fun fetchPremios(adapter: PremiosAdapter){
-        val service = Api.buildServicePremios()
-        val call = service.getAllPremios()
 
-        call.enqueue(object : Callback<List<Premio>> {
-            override fun onResponse(call: Call<List<Premio>>, response: Response<List<Premio>>) {
+    fun fetchNiveis(onNiveisFetched: (List<Nivel>) -> Unit) {
+        val service = Api.buildServiceNiveis()
+        val call = service.getAllNiveis()
+
+        call.enqueue(object : Callback<List<Nivel>> {
+            override fun onResponse(call: Call<List<Nivel>>, response: Response<List<Nivel>>) {
                 if (response.isSuccessful) {
-                    val premios = response.body() ?: emptyList()
-                    println("Ranking data size: ${premios.size}") // Log para verificar o tamanho da lista
-                    adapter.updateData(premios)
+                    val niveisList = response.body() ?: emptyList()
+                    onNiveisFetched(niveisList) // Passa todos os níveis via callback
                 } else {
-                    println("Erro ao carregar ranking: ${response.code()}")
+                    Toast.makeText(context, "Erro ao carregar níveis: ${response.code()}", Toast.LENGTH_SHORT).show()
                 }
             }
 
-            override fun onFailure(call: Call<List<Premio>>, t: Throwable) {
-                Toast.makeText(context, "Falha na requisição: ${t.message}", Toast.LENGTH_SHORT).show()}
+            override fun onFailure(call: Call<List<Nivel>>, t: Throwable) {
+                Toast.makeText(context, "Falha na requisição: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
         })
     }
 }
