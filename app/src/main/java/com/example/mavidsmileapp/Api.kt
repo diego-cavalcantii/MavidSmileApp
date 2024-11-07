@@ -33,6 +33,8 @@ interface NivelPropertyService {
     fun getAllNiveis(): Call<List<Nivel>>
 }
 
+
+
 object Api {
     fun buildServiceCliente(): ClientePropertyService {
         val retrofit = Retrofit.Builder()

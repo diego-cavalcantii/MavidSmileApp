@@ -50,4 +50,6 @@
     <string name="ranking">Ranking</string>
     <string name="main">Main</string>
     <string name="rewards">Rewards</string>
+    <string name="metas">Metas</string>
+    <string name="premios_recebidos">Premios Recebidos</string>
 </resources>

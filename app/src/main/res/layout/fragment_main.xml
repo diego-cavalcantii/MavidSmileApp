@@ -16,7 +16,7 @@
         android:fontFamily="@font/neon"
         android:gravity="center"
         android:text="@string/cumpra_suas_tarefas_diarias_e_continue_avan_ando"
-        android:textColor="@color/black"
+        android:textColor="@color/icon_color"
         android:textSize="24sp"
         android:textStyle="normal"
         app:layout_constraintBottom_toTopOf="@+id/boxActivityEscova"
