@@ -8,25 +8,31 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mavidsmileapp.ClienteHelper
 import com.example.mavidsmileapp.Menu
 import com.example.mavidsmileapp.adapters.NiveisAdapter
 import com.example.mavidsmileapp.databinding.FragmentMetasBinding
+import com.example.mavidsmileapp.services.ClienteService
+import com.example.mavidsmileapp.services.NivelService
+import com.example.mavidsmileapp.services.ProgressoService
 
 class MetasFragment : Fragment() {
 
     private var _binding: FragmentMetasBinding? = null
     private val binding get() = _binding!!
-    private lateinit var clienteHelper: ClienteHelper
     private lateinit var niveisAdapter: NiveisAdapter
     private lateinit var menu: Menu
+    private lateinit var nivelService: NivelService
+    private lateinit var progressoService: ProgressoService
+    private lateinit var clienteService: ClienteService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMetasBinding.inflate(inflater, container, false)
-        clienteHelper = ClienteHelper(requireContext())
+        nivelService = NivelService(requireContext())
+        progressoService = ProgressoService(requireContext())
+        clienteService = ClienteService(requireContext())
         return binding.root
     }
 
@@ -39,12 +45,19 @@ class MetasFragment : Fragment() {
         binding.recyclerViewAllPremios.adapter = niveisAdapter
 
         // Carrega todos os níveis
-        clienteHelper.fetchNiveis { niveis ->
-            niveisAdapter.updateData(niveis) // Atualiza o adapter com todos os níveis
+        nivelService.fetchNiveis { niveis ->
+            niveisAdapter.updateData(niveis)
         }
 
         // Carrega o progresso do cliente
-        clienteHelper.fetchProgressoCliente("201", binding.layoutBio)
+        progressoService.fetchProgressoCliente("201", binding.layoutBio)
+
+        // Carrega os dados do cliente e utiliza o callback para manipular o cliente diretamente
+        clienteService.fetchClient("201", binding.layoutBio) { cliente ->
+            binding.layoutBio.nomeCliente.text = cliente.nomeCompleto
+            binding.layoutBio.nivelCliente.text = cliente.nomeNivel
+            binding.layoutBio.pontosCliente.text = "${cliente.pontos}pts"
+        }
 
         // Configuração do menu
         menu = Menu(binding.root, findNavController())

@@ -6,5 +6,6 @@ data class Cliente (
     val email: String,
     val endereco: String,
     val pontos: Int,
+    val imgSrc: String,
     val premiosRecebidos: List<Premio>
 )

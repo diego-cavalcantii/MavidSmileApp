@@ -22,15 +22,15 @@
         app:layout_constraintVertical_bias="0.072">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imgBio"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:scaleType="centerCrop"
-            tools:srcCompat="@tools:sample/avatars"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/nomeCliente"

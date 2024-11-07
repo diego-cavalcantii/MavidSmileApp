@@ -8,26 +8,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mavidsmileapp.ClienteHelper
 import com.example.mavidsmileapp.Menu
-import com.example.mavidsmileapp.adapters.NiveisAdapter
 import com.example.mavidsmileapp.adapters.PremiosAdapter
 import com.example.mavidsmileapp.databinding.FragmentAwardsBinding
+import com.example.mavidsmileapp.services.ClienteService
+import com.example.mavidsmileapp.services.ProgressoService
 
 class AwardsFragment : Fragment() {
     private var _binding: FragmentAwardsBinding? = null
     private val binding get() = _binding!!
-    private lateinit var clienteHelper: ClienteHelper
     private lateinit var premiosAdapter: PremiosAdapter
-    private lateinit var niveisAdapter: NiveisAdapter
     private lateinit var menu: Menu
+    private lateinit var clienteService: ClienteService
+    private lateinit var progressoService: ProgressoService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAwardsBinding.inflate(inflater, container, false)
-        clienteHelper = ClienteHelper(requireContext())
+        clienteService = ClienteService(requireContext())
+        progressoService = ProgressoService(requireContext())
         return binding.root
     }
 
@@ -40,12 +41,12 @@ class AwardsFragment : Fragment() {
         binding.recyclerViewPremios.adapter = premiosAdapter
 
         // Carrega os dados do cliente e exibe os prêmios recebidos
-        clienteHelper.fetchClient("201", binding.layoutBio) { cliente ->
+        clienteService.fetchClient("201", binding.layoutBio) { cliente ->
             premiosAdapter.updateData(cliente.premiosRecebidos) // Atualiza o adapter com os prêmios
         }
 
 
-        clienteHelper.fetchProgressoCliente("201", binding.layoutBio)
+        progressoService.fetchProgressoCliente("201", binding.layoutBio)
 
         menu = Menu(binding.root, findNavController())
         menu.setupMenu()

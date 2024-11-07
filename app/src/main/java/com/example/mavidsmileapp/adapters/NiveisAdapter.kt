@@ -14,7 +14,7 @@ class NiveisAdapter(private var nivelList: List<Nivel>) : RecyclerView.Adapter<N
         fun bind(nivel: Nivel) {
             binding.nomePremio.text = nivel.premio.nomePremio
             binding.descricaoPremio.text = nivel.premio.descricaoPremio
-            binding.pontosNecessarios.text = nivel.pontosNecessarios.toString()
+            binding.pontosNecessarios.text = "${nivel.pontosNecessarios}pts"
             binding.nomeNivel.text = nivel.nomeNivel
         }
     }
